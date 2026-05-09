@@ -1,9 +1,10 @@
 # Chat with Code
 
-A Streamlit application that allows you to load any public GitHub repository and interactively ask questions about its codebase. Powered by LlamaIndex and Gemini 2.5 Flash.
+A Retrieval-Augmented Generation (RAG) Streamlit application that allows you to load any public GitHub repository and interactively ask questions about its codebase. Powered by LlamaIndex and Gemini 2.5 Flash.
 
 ## Features
 
+- **RAG Architecture**: Uses Retrieval-Augmented Generation to provide context-aware answers based on the repository's code.
 - **Load GitHub Repositories**: Directly fetch and index files from any public GitHub repo.
 - **AI-Powered Code Analysis**: Ask detailed questions about the codebase and get accurate, context-aware answers.
 - **Download Responses**: Easily export your conversations as Markdown files.
