@@ -60,6 +60,3 @@ A Retrieval-Augmented Generation (RAG) Streamlit application that allows you to 
 - [LlamaIndex](https://www.llamaindex.ai/) - Data framework for connecting custom data sources to LLMs.
 - [Google Gemini](https://ai.google.dev/) - The LLM used for generating answers.
 
-## License
-
-This project is licensed under the MIT License.
