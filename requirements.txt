@@ -1,0 +1,8 @@
+streamlit
+python-dotenv
+google-generativeai 
+llama_index.llms.google_genai
+llama-index-embeddings-huggingface
+llama-index-readers-github 
+llama-index
+nest_asyncio
