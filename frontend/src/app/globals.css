@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-surface-200 dark:border-surface-700;
+  }
+
+  body {
+    @apply bg-surface-50 text-surface-900 dark:bg-surface-950 dark:text-surface-100;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-300 dark:bg-surface-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-400 dark:bg-surface-500;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5
+           bg-brand-600 text-white font-medium text-sm
+           hover:bg-brand-700 active:bg-brand-800
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-150 ease-out;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5
+           bg-surface-100 dark:bg-surface-800 text-surface-700 dark:text-surface-300
+           font-medium text-sm border border-surface-200 dark:border-surface-700
+           hover:bg-surface-200 dark:hover:bg-surface-700
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-150 ease-out;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3 py-2
+           text-surface-600 dark:text-surface-400 font-medium text-sm
+           hover:bg-surface-100 dark:hover:bg-surface-800
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-150 ease-out;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-surface-300 dark:border-surface-600
+           bg-white dark:bg-surface-800 px-3.5 py-2.5 text-sm
+           text-surface-900 dark:text-surface-100
+           placeholder:text-surface-400 dark:placeholder:text-surface-500
+           focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500
+           transition-all duration-150;
+  }
+
+  .card {
+    @apply rounded-xl border border-surface-200 dark:border-surface-800
+           bg-white dark:bg-surface-900 shadow-sm;
+  }
+
+  /* Code block container */
+  .code-block {
+    @apply rounded-lg border border-surface-200 dark:border-surface-700
+           bg-surface-50 dark:bg-surface-900 overflow-hidden;
+  }
+
+  .code-block-header {
+    @apply flex items-center justify-between px-4 py-2
+           bg-surface-100 dark:bg-surface-800 border-b
+           border-surface-200 dark:border-surface-700;
+  }
+}
+
+/* Markdown content styling */
+.markdown-content h1 { @apply text-2xl font-bold mt-6 mb-3; }
+.markdown-content h2 { @apply text-xl font-semibold mt-5 mb-2; }
+.markdown-content h3 { @apply text-lg font-semibold mt-4 mb-2; }
+.markdown-content h4 { @apply text-base font-semibold mt-3 mb-1; }
+.markdown-content p { @apply mb-3 leading-relaxed; }
+.markdown-content ul { @apply list-disc pl-6 mb-3 space-y-1; }
+.markdown-content ol { @apply list-decimal pl-6 mb-3 space-y-1; }
+.markdown-content li { @apply leading-relaxed; }
+.markdown-content a { @apply text-brand-600 dark:text-brand-400 underline underline-offset-2 hover:text-brand-700 dark:hover:text-brand-300; }
+.markdown-content blockquote { @apply border-l-4 border-brand-500/40 pl-4 italic text-surface-600 dark:text-surface-400 my-3; }
+.markdown-content table { @apply w-full border-collapse my-3; }
+.markdown-content th { @apply text-left px-3 py-2 bg-surface-100 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 font-semibold text-sm; }
+.markdown-content td { @apply px-3 py-2 border border-surface-200 dark:border-surface-700 text-sm; }
+.markdown-content code:not(pre code) {
+  @apply px-1.5 py-0.5 rounded bg-surface-100 dark:bg-surface-800
+         text-brand-700 dark:text-brand-300 text-sm font-mono;
+}
+.markdown-content pre { @apply my-3; }
+.markdown-content hr { @apply my-6 border-surface-200 dark:border-surface-700; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
