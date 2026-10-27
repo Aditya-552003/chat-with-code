@@ -79,6 +79,18 @@ def create_app() -> FastAPI:
             content={"detail": "An internal error occurred."},
         )
 
+    # Root endpoint
+    @app.get("/", include_in_schema=False)
+    async def root():
+        return {
+            "name": "Chat with Code API",
+            "status": "online",
+            "version": settings.app_version,
+            "docs_url": "/docs",
+            "health_url": "/api/health",
+            "frontend_url": settings.frontend_origin,
+        }
+
     # Register routes
     app.include_router(health.router)
     app.include_router(repositories.router)

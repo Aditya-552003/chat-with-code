@@ -61,8 +61,9 @@ async def verify_repository(owner: str, repo: str) -> dict:
     """Verify that a repository exists and is accessible."""
     settings = get_settings()
     headers = {"Accept": "application/vnd.github.v3+json"}
-    if settings.github_token:
-        headers["Authorization"] = f"token {settings.github_token}"
+    token = (settings.github_token or "").strip()
+    if token:
+        headers["Authorization"] = f"token {token}"
 
     async with httpx.AsyncClient(timeout=15.0) as client:
         resp = await client.get(
@@ -92,8 +93,9 @@ async def verify_branch(owner: str, repo: str, branch: str) -> bool:
     """Verify that a branch exists in the repository."""
     settings = get_settings()
     headers = {"Accept": "application/vnd.github.v3+json"}
-    if settings.github_token:
-        headers["Authorization"] = f"token {settings.github_token}"
+    token = (settings.github_token or "").strip()
+    if token:
+        headers["Authorization"] = f"token {token}"
 
     async with httpx.AsyncClient(timeout=15.0) as client:
         resp = await client.get(
