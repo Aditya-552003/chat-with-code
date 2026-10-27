@@ -77,7 +77,7 @@ export function useChat(repositoryId: string | null) {
               setMessages((prev) =>
                 prev.map((m) =>
                   m.id === assistantId
-                    ? { ...m, content: m.content || 'Failed to generate response.', isStreaming: false }
+                    ? { ...m, content: m.content || (errMsg ? `⚠️ ${errMsg}` : 'Failed to generate response.'), isStreaming: false }
                     : m,
                 ),
               );

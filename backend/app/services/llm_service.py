@@ -25,9 +25,25 @@ def _get_llm() -> GoogleGenAI:
     global _llm
     if _llm is None:
         settings = get_settings()
+        api_key = (
+            settings.gemini_api_key
+            or os.getenv("GEMINI_API_KEY", "")
+            or os.getenv("GOOGLE_API_KEY", "")
+        ).strip()
+
+        if not api_key:
+            raise GeminiAPIError(
+                "Gemini API key is missing. Please add your GEMINI_API_KEY to backend/.env and restart the backend."
+            )
+
+        # Ensure environment variable is set for google-genai SDK
+        os.environ["GEMINI_API_KEY"] = api_key
+        os.environ["GOOGLE_API_KEY"] = api_key
+
         logger.info(f"Initializing Gemini LLM: {settings.gemini_model}")
         _llm = GoogleGenAI(
             model=settings.gemini_model,
+            api_key=api_key,
             temperature=settings.temperature,
         )
     return _llm
