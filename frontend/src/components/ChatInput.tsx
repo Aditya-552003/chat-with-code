@@ -140,7 +140,7 @@ export function ChatInput({
                 <span>Export as Markdown</span>
               </button>
             </div>
-            <span className="text-[11px] opacity-70">Powered by Gemini 2.5 Flash & BAAI/bge-small-en</span>
+            <span className="text-[11px] opacity-70">Powered by Gemini 2.5 Flash & Gemini Embeddings</span>
           </div>
         )}
       </div>

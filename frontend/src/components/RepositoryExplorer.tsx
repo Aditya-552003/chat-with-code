@@ -110,7 +110,7 @@ export function RepositoryExplorer({
             </div>
             <ul className="text-xs text-surface-600 dark:text-surface-400 space-y-1.5 list-disc list-inside">
               <li><strong className="text-surface-800 dark:text-surface-200">LLM:</strong> Google Gemini 2.5 Flash</li>
-              <li><strong className="text-surface-800 dark:text-surface-200">Embeddings:</strong> BAAI/bge-small-en (Dense 384d)</li>
+              <li><strong className="text-surface-800 dark:text-surface-200">Embeddings:</strong> Gemini Embeddings (3072d)</li>
               <li><strong className="text-surface-800 dark:text-surface-200">Index Store:</strong> FAISS / LlamaIndex VectorStore</li>
               <li><strong className="text-surface-800 dark:text-surface-200">Chunking:</strong> AST Semantic Splitter (1024 / 128)</li>
             </ul>

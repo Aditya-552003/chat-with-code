@@ -15,8 +15,8 @@ class Settings(BaseSettings):
 
     # --- Model Configuration ---
     gemini_model: str = Field(default="gemini-2.5-flash", description="Gemini model name")
-    embedding_model: str = Field(default="BAAI/bge-small-en", description="HuggingFace embedding model")
-    embedding_dimensions: int = Field(default=384, description="Embedding vector dimensions for bge-small-en")
+    embedding_model: str = Field(default="gemini-embedding-001", description="Gemini embedding model")
+    embedding_dimensions: int = Field(default=3072, description="Embedding vector dimensions for Gemini")
 
     # --- Retrieval ---
     retrieval_top_k: int = Field(default=8, description="Number of chunks to retrieve")

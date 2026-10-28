@@ -8,7 +8,7 @@
 
 **Chat with Code** is a production-grade full-stack web application that allows you to connect any public GitHub repository and interactively analyze its architecture, workflows, and logic using Retrieval-Augmented Generation (RAG).
 
-Powered by **Next.js 15**, **FastAPI**, **Google Gemini 2.5 Flash**, **BAAI/bge-small-en dense embeddings**, and **LlamaIndex**.
+Powered by **Next.js 15**, **FastAPI**, **Google Gemini 2.5 Flash**, **Google Gemini Embeddings**, and **LlamaIndex**.
 
 ---
 
@@ -17,7 +17,7 @@ Powered by **Next.js 15**, **FastAPI**, **Google Gemini 2.5 Flash**, **BAAI/bge-
 - **Decoupled Architecture**: High-performance FastAPI backend paired with a modern, responsive Next.js 15 App Router frontend.
 - **GitHub Repository Indexer**: Seamlessly fetch any public repository and branch via the GitHub REST API with branch-aware path parsing.
 - **AST & Semantic Code Chunking**: Intelligent code splitters respecting syntactic boundaries (functions, classes, blocks) rather than naive character slicing.
-- **Dense Vector Search**: Powered by `BAAI/bge-small-en` (384-dimensional dense embeddings) and in-memory vector indexing for lightning-fast similarity lookups.
+- **Dense Vector Search**: Powered by Google Gemini Embeddings (`gemini-embedding-001`, 3072 dimensions) and in-memory vector indexing for lightning-fast similarity lookups.
 - **Real-Time Streaming Responses**: Token-by-token Server-Sent Events (SSE) streaming with live cursor animation.
 - **Grounded Source Citations**: Every answer provides referenced code snippets, line numbers, relevance scores, and direct GitHub permalinks.
 - **Interactive Repository Explorer**: Inspect indexed files, vector chunk distributions, and branch metadata.
@@ -46,8 +46,8 @@ Powered by **Next.js 15**, **FastAPI**, **Google Gemini 2.5 Flash**, **BAAI/bge-
 ┌──────────────────────────────┐┌─────────────────────────────┐
 │       GitHub Service         ││       RAG & AI Pipeline     │
 │  • Repository Loader         ││  • AST Code Splitter        │
-│  • Tree & Content Fetcher    ││  • BAAI/bge-small-en Embeds │
-│  • File Extension Filtering  ││  • FAISS / VectorStore      │
+│  • Tree & Content Fetcher    ││  • Gemini Dense Embeds      │
+│  • File Extension Filtering  ││  • VectorStore / Retrieval  │
 └──────────────────────────────┘│  • Gemini 2.5 Flash LLM     │
                                 └─────────────────────────────┘
 ```
@@ -69,7 +69,7 @@ Powered by **Next.js 15**, **FastAPI**, **Google Gemini 2.5 Flash**, **BAAI/bge-
 - **Validation**: [Pydantic v2](https://docs.pydantic.dev/)
 - **RAG & Orchestration**: [LlamaIndex](https://www.llamaindex.ai/)
 - **LLM**: Google Gemini 2.5 Flash via `llama-index-llms-google-genai`
-- **Embeddings**: `BAAI/bge-small-en` via HuggingFace
+- **Embeddings**: Google Gemini Embeddings (`gemini-embedding-001`)
 - **Vector Storage**: In-Memory Vector Store
 
 ---
