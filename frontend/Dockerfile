@@ -5,14 +5,14 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-COPY frontend/package.json frontend/package-lock.json* ./
+COPY package.json package-lock.json* ./
 RUN npm install
 
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY frontend/ .
+COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
